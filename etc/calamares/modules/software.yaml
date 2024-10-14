@@ -64,6 +64,20 @@
         packages:
          - gamemode-git
          - lib32-gamemode
+- name: "Other Software"
+  description: "Other Software"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+
+   - obs-studio
+   - v4l2loopback-dkms
+   - v4l2loopback-utils
+   - kdenlive
+   - touchegg
+     
 - name: "VirtualBox"
   description: "Installs VirtualBox"
   critical: false
@@ -84,5 +98,7 @@
     - cinnamon-configs
     - fastfetch
     - nano 
-
-
+    - webapp-manager
+    - vlc
+    - loupe
+    - xarchiver

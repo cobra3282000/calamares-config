@@ -5,8 +5,8 @@
   selected: false
   expanded: false
   packages:
-    - kernel515-lts
-    - kernel-lts-headers
+    - kernel-lts-515
+    - kernel-lts-515-headers
 - name: "Latest Linux Kernel"
   description: "Installs the latest Linux Kernel"
   critical: false

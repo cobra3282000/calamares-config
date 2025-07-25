@@ -30,6 +30,9 @@
     - lutris
     - steam
     - steam-native-runtime
+    - lutris
+    - heroic-games-launcher-bin
+    - bottles
 - name: "Install Other Software"
   description: "Software"
   critical: false

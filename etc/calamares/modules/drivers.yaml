@@ -1,13 +1,4 @@
-- name: "Kernel Modified Kernel for Older NVIDIA cards to work - LTS"
-  description: "Older Kernel for older nvidia cards, so don't use if never videocard!"
-  critical: false
-  hidden: yes
-  selected: false
-  expanded: false
-  packages:
-    - kernel-lts-515
-    - kernel-lts-515-headers
-- name: "Latest Linux Kernel"
+- name: "Latest Linux Kernel (don't pick any kernel if you want latest kernel)"
   description: "Installs the latest Linux Kernel"
   critical: false
   hidden: false
@@ -16,7 +7,7 @@
   packages:
     - linux
     - linux-headers
-- name: "Latest Linux-Lts Kernel"
+- name: "Latest Linux-Lts Kernel (Most Stable)"
   description: "Installs the Linux-Lts Kernel"
   critical: false
   hidden: false
@@ -26,7 +17,7 @@
     - linux-lts
     - linux-lts-headers
 - name: "Latest Linux-Zen Kernel"
-  description: "Installs the linux-zen kernel"
+  description: "Installs the linux-zen kernel (Best for gamer's)"
   critical: false
   hidden: false
   selected: false

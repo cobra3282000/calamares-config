@@ -1,8 +1,8 @@
-- name: "Latest Linux Kernel (don't pick any kernel if you want latest kernel)"
+- name: "Latest Linux Kernel (Recommended)"
   description: "Installs the latest Linux Kernel"
   critical: false
   hidden: false
-  selected: false
+  selected: true
   expanded: true
   packages:
     - linux

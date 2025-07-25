@@ -1,9 +1,9 @@
-- name: "Latest Linux Kernel (Recommended)"
+- name: "Latest Linux Kernel"
   description: "Installs the latest Linux Kernel"
   critical: false
-  hidden: false
-  selected: true
-  expanded: true
+  hidden: true
+  selected: false
+  expanded: false
   packages:
     - linux
     - linux-headers

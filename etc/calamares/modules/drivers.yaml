@@ -8,16 +8,16 @@
     - kernel-lts-515
     - kernel-lts-515-headers
 - name: "Latest Linux Kernel"
-  description: "Installs the latest Linux Kernel"
+  description: "Latest Kernel (recommended for everyday use)"
   critical: false
   hidden: false
-  selected: false
+  selected: true
   expanded: true
   packages:
     - linux
     - linux-headers
 - name: "Latest Linux-Lts Kernel"
-  description: "Installs the Linux-Lts Kernel"
+  description: "Installs the Linux-Lts Kernel (stable older kernel)"
   critical: false
   hidden: false
   selected: false
@@ -25,7 +25,7 @@
   packages:
     - linux-lts
     - linux-lts-headers
-- name: "Latest Linux-Zen Kernel"
+- name: "Latest Linux-Zen Kernel (Gamers recommended)"
   description: "Installs the linux-zen kernel"
   critical: false
   hidden: false
@@ -149,3 +149,4 @@
   expanded: true
   packages:
     - amd-ucode
+y

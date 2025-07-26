@@ -1,12 +1,3 @@
-- name: "Kernel Modified Kernel for Older NVIDIA cards to work - LTS"
-  description: "Older Kernel for older nvidia cards, so don't use if never videocard!"
-  critical: false
-  hidden: yes
-  selected: false
-  expanded: false
-  packages:
-    - kernel-lts-515
-    - kernel-lts-515-headers
 - name: "Latest Linux Kernel"
   description: "Latest Kernel (recommended for everyday use)"
   critical: false

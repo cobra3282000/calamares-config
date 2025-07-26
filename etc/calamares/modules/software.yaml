@@ -33,7 +33,16 @@
     - lutris
     - heroic-games-launcher-bin
     - bottles
-- name: "Install Other Software"
+- name: "Chat Software"
+  description: "Software"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+   - vesktop
+   - discord
+- name: "Software"
   description: "Software"
   critical: false
   hidden: false
@@ -41,11 +50,8 @@
   expanded: true
   packages:
    - obs-studio
-   - v4l2loopback-dkms
-   - v4l2loopback-utils
-   - vesktop
-   - discord
-   - libreoffice
+   - v412loopback-dkms
+   - libreaoffice 
 - name: "Browsers-vpn"
   description: "Browsers-vpn"
   critical: false
@@ -64,7 +70,7 @@
   hidden: true
   selected: false
   expanded: false
-  packages: 
+  packages:
     - virtualbox
     - virtualbox-host-dkms
     - virtualbox-guest-utils
@@ -76,7 +82,7 @@
   expanded: false
   packages:
     - fastfetch
-    - nano 
+    - nano
     - webapp-manager
     - vlc
     - loupe
@@ -108,3 +114,4 @@
     - mint-x-icons
     - mint-y-icons
     - gnome-screenshot
+    - firefox

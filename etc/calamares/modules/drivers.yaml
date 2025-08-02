@@ -2,8 +2,8 @@
   description: "Latest Kernel (recommended for everyday use)"
   critical: false
   hidden: false
-  selected: true
-  expanded: true
+  selected: false
+  expanded: false
   packages:
     - linux
     - linux-headers
@@ -11,7 +11,7 @@
   description: "Installs the Linux-Lts Kernel (stable older kernel)"
   critical: false
   hidden: false
-  selected: false
+  selected: true
   expanded: true
   packages:
     - linux-lts

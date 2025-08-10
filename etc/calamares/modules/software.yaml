@@ -51,7 +51,7 @@
   packages:
    - obs-studio
    - v412loopback-dkms
-   - libreaoffice 
+   - libreaoffice
 - name: "Browsers-vpn"
   description: "Browsers-vpn"
   critical: false

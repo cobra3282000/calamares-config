@@ -84,7 +84,7 @@
     - fastfetch
     - nano
     - webapp-manager
-    - vlc
+    - celluloid
     - loupe
     - xarchiver
     - timeshift
@@ -116,3 +116,4 @@
     - gnome-screenshot
     - firefox
     - pamac-all
+    - updater

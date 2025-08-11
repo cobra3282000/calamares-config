@@ -12,7 +12,7 @@
   critical: false
   hidden: false
   selected: true
-  expanded: true
+  expanded: false
   packages:
     - linux-lts
     - linux-lts-headers
@@ -21,7 +21,7 @@
   critical: false
   hidden: false
   selected: false
-  expanded: true
+  expanded: false
   packages:
     - linux-zen
     - linux-zen-headers
@@ -137,6 +137,6 @@
   critical: false
   hidden: false
   selected: false
-  expanded: true
+  expanded: false
   packages:
     - amd-ucode

@@ -44,6 +44,7 @@
    - discord
    - messenger-pwa
    - google-messages
+   - root-messenger
 - name: "Software"
   description: "Software"
   critical: false

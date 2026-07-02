@@ -205,7 +205,7 @@ QCheckBox::indicator {
 }
 
 QCheckBox::indicator:unchecked {
-    background-color: #0000000;  /* Pure white */
+    background-color: #000000;
 }
 
 QCheckBox::indicator:unchecked:hover {
@@ -216,7 +216,7 @@ QCheckBox::indicator:unchecked:hover {
 QCheckBox::indicator:checked {
     background-color: #ffffff;
     border-color: #ffffff;
-    image: url(/path/to/check-black.svg);  /* Changed to black checkmark for visibility */
+    image: url(check-black.svg);
 }
 
 QCheckBox::indicator:checked:hover {
@@ -233,9 +233,3 @@ QCheckBox::indicator:disabled {
 QCheckBox::indicator:focus {
     border-color: #f0f0f0;
 }
-
-/* Save this as check-black.svg instead of check-white.svg */
-/* <?xml version="1.0" encoding="UTF-8"?>
-<svg width="16" height="16" version="1.1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
- <path d="m13.6 4.4-7.2 7.2-4-4" fill="none" stroke="#000000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
-</svg> */

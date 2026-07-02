@@ -308,24 +308,33 @@ Kirigami.ScrollablePage {
                 color: root.checked ? positiveFieldColor : unfilledFieldColor
                 border.color: root.checked ? positiveFieldOutlineColor : unfilledFieldOutlineColor
 
-                Canvas {
+                Item {
                     anchors.fill: parent
-                    anchors.margins: 4
                     visible: root.checked
-                    onPaint: {
-                        var ctx = getContext("2d")
-                        ctx.reset()
-                        ctx.strokeStyle = "#FFFFFF"
-                        ctx.lineWidth = 2
-                        ctx.lineCap = "round"
-                        ctx.lineJoin = "round"
-                        ctx.beginPath()
-                        ctx.moveTo(width * 0.05, height * 0.55)
-                        ctx.lineTo(width * 0.4, height * 0.85)
-                        ctx.lineTo(width * 0.95, height * 0.15)
-                        ctx.stroke()
+
+                    Rectangle {
+                        width: parent.width * 0.42
+                        height: 2
+                        radius: 1
+                        color: "#FFFFFF"
+                        antialiasing: true
+                        transformOrigin: Item.Left
+                        rotation: 45
+                        x: parent.width * 0.05
+                        y: parent.height * 0.50
                     }
-                    Component.onCompleted: requestPaint()
+
+                    Rectangle {
+                        width: parent.width * 0.75
+                        height: 2
+                        radius: 1
+                        color: "#FFFFFF"
+                        antialiasing: true
+                        transformOrigin: Item.Left
+                        rotation: -50
+                        x: parent.width * 0.40
+                        y: parent.height * 0.82
+                    }
                 }
             }
         }
@@ -444,24 +453,33 @@ Kirigami.ScrollablePage {
                 color: autoLogin.checked ? positiveFieldColor : unfilledFieldColor
                 border.color: autoLogin.checked ? positiveFieldOutlineColor : unfilledFieldOutlineColor
 
-                Canvas {
+                Item {
                     anchors.fill: parent
-                    anchors.margins: 4
                     visible: autoLogin.checked
-                    onPaint: {
-                        var ctx = getContext("2d")
-                        ctx.reset()
-                        ctx.strokeStyle = "#FFFFFF"
-                        ctx.lineWidth = 2
-                        ctx.lineCap = "round"
-                        ctx.lineJoin = "round"
-                        ctx.beginPath()
-                        ctx.moveTo(width * 0.05, height * 0.55)
-                        ctx.lineTo(width * 0.4, height * 0.85)
-                        ctx.lineTo(width * 0.95, height * 0.15)
-                        ctx.stroke()
+
+                    Rectangle {
+                        width: parent.width * 0.42
+                        height: 2
+                        radius: 1
+                        color: "#FFFFFF"
+                        antialiasing: true
+                        transformOrigin: Item.Left
+                        rotation: 45
+                        x: parent.width * 0.05
+                        y: parent.height * 0.50
                     }
-                    Component.onCompleted: requestPaint()
+
+                    Rectangle {
+                        width: parent.width * 0.75
+                        height: 2
+                        radius: 1
+                        color: "#FFFFFF"
+                        antialiasing: true
+                        transformOrigin: Item.Left
+                        rotation: -50
+                        x: parent.width * 0.40
+                        y: parent.height * 0.82
+                    }
                 }
             }
         }
@@ -484,24 +502,33 @@ Kirigami.ScrollablePage {
                 color: strongPasswords.checked ? positiveFieldColor : unfilledFieldColor
                 border.color: strongPasswords.checked ? positiveFieldOutlineColor : unfilledFieldOutlineColor
 
-                Canvas {
+                Item {
                     anchors.fill: parent
-                    anchors.margins: 4
                     visible: strongPasswords.checked
-                    onPaint: {
-                        var ctx = getContext("2d")
-                        ctx.reset()
-                        ctx.strokeStyle = "#FFFFFF"
-                        ctx.lineWidth = 2
-                        ctx.lineCap = "round"
-                        ctx.lineJoin = "round"
-                        ctx.beginPath()
-                        ctx.moveTo(width * 0.05, height * 0.55)
-                        ctx.lineTo(width * 0.4, height * 0.85)
-                        ctx.lineTo(width * 0.95, height * 0.15)
-                        ctx.stroke()
+
+                    Rectangle {
+                        width: parent.width * 0.42
+                        height: 2
+                        radius: 1
+                        color: "#FFFFFF"
+                        antialiasing: true
+                        transformOrigin: Item.Left
+                        rotation: 45
+                        x: parent.width * 0.05
+                        y: parent.height * 0.50
                     }
-                    Component.onCompleted: requestPaint()
+
+                    Rectangle {
+                        width: parent.width * 0.75
+                        height: 2
+                        radius: 1
+                        color: "#FFFFFF"
+                        antialiasing: true
+                        transformOrigin: Item.Left
+                        rotation: -50
+                        x: parent.width * 0.40
+                        y: parent.height * 0.82
+                    }
                 }
             }
         }

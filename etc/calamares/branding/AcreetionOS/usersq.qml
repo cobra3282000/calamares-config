@@ -297,6 +297,37 @@ Kirigami.ScrollablePage {
             text: qsTr("Reuse user password as root password")
             checked: config.reuseUserPasswordForRoot
             onCheckedChanged: config.setReuseUserPasswordForRoot(checked)
+
+            indicator: Rectangle {
+                x: root.leftPadding
+                y: root.topPadding + (root.availableHeight - height) / 2
+                implicitWidth: 20
+                implicitHeight: 20
+                radius: 3
+                border.width: 2
+                color: root.checked ? positiveFieldColor : unfilledFieldColor
+                border.color: root.checked ? positiveFieldOutlineColor : unfilledFieldOutlineColor
+
+                Canvas {
+                    anchors.fill: parent
+                    anchors.margins: 4
+                    visible: root.checked
+                    onPaint: {
+                        var ctx = getContext("2d")
+                        ctx.reset()
+                        ctx.strokeStyle = "#FFFFFF"
+                        ctx.lineWidth = 2
+                        ctx.lineCap = "round"
+                        ctx.lineJoin = "round"
+                        ctx.beginPath()
+                        ctx.moveTo(width * 0.05, height * 0.55)
+                        ctx.lineTo(width * 0.4, height * 0.85)
+                        ctx.lineTo(width * 0.95, height * 0.15)
+                        ctx.stroke()
+                    }
+                    Component.onCompleted: requestPaint()
+                }
+            }
         }
 
         Label {
@@ -398,17 +429,81 @@ Kirigami.ScrollablePage {
         }
 
         CheckBox {
+            id: autoLogin
             text: qsTr("Log in automatically without asking for the password")
             checked: config.doAutoLogin
             onCheckedChanged: config.setAutoLogin(checked)
+
+            indicator: Rectangle {
+                x: autoLogin.leftPadding
+                y: autoLogin.topPadding + (autoLogin.availableHeight - height) / 2
+                implicitWidth: 20
+                implicitHeight: 20
+                radius: 3
+                border.width: 2
+                color: autoLogin.checked ? positiveFieldColor : unfilledFieldColor
+                border.color: autoLogin.checked ? positiveFieldOutlineColor : unfilledFieldOutlineColor
+
+                Canvas {
+                    anchors.fill: parent
+                    anchors.margins: 4
+                    visible: autoLogin.checked
+                    onPaint: {
+                        var ctx = getContext("2d")
+                        ctx.reset()
+                        ctx.strokeStyle = "#FFFFFF"
+                        ctx.lineWidth = 2
+                        ctx.lineCap = "round"
+                        ctx.lineJoin = "round"
+                        ctx.beginPath()
+                        ctx.moveTo(width * 0.05, height * 0.55)
+                        ctx.lineTo(width * 0.4, height * 0.85)
+                        ctx.lineTo(width * 0.95, height * 0.15)
+                        ctx.stroke()
+                    }
+                    Component.onCompleted: requestPaint()
+                }
+            }
         }
 
         CheckBox {
+            id: strongPasswords
             visible: config.permitWeakPasswords
             text: qsTr("Validate passwords quality")
             checked: config.requireStrongPasswords
             onCheckedChanged: config.setRequireStrongPasswords(checked),
                 rootPassMessage.visible = false
+
+            indicator: Rectangle {
+                x: strongPasswords.leftPadding
+                y: strongPasswords.topPadding + (strongPasswords.availableHeight - height) / 2
+                implicitWidth: 20
+                implicitHeight: 20
+                radius: 3
+                border.width: 2
+                color: strongPasswords.checked ? positiveFieldColor : unfilledFieldColor
+                border.color: strongPasswords.checked ? positiveFieldOutlineColor : unfilledFieldOutlineColor
+
+                Canvas {
+                    anchors.fill: parent
+                    anchors.margins: 4
+                    visible: strongPasswords.checked
+                    onPaint: {
+                        var ctx = getContext("2d")
+                        ctx.reset()
+                        ctx.strokeStyle = "#FFFFFF"
+                        ctx.lineWidth = 2
+                        ctx.lineCap = "round"
+                        ctx.lineJoin = "round"
+                        ctx.beginPath()
+                        ctx.moveTo(width * 0.05, height * 0.55)
+                        ctx.lineTo(width * 0.4, height * 0.85)
+                        ctx.lineTo(width * 0.95, height * 0.15)
+                        ctx.stroke()
+                    }
+                    Component.onCompleted: requestPaint()
+                }
+            }
         }
 
         Label {

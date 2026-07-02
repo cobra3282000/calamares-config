@@ -308,33 +308,16 @@ Kirigami.ScrollablePage {
                 color: root.checked ? positiveFieldColor : unfilledFieldColor
                 border.color: root.checked ? positiveFieldOutlineColor : unfilledFieldOutlineColor
 
-                Item {
-                    anchors.fill: parent
+                Image {
+                    anchors.centerIn: parent
+                    width: parent.width * 0.65
+                    height: parent.height * 0.65
                     visible: root.checked
-
-                    Rectangle {
-                        width: parent.width * 0.42
-                        height: 2
-                        radius: 1
-                        color: "#FFFFFF"
-                        antialiasing: true
-                        transformOrigin: Item.Left
-                        rotation: 45
-                        x: parent.width * 0.05
-                        y: parent.height * 0.50
-                    }
-
-                    Rectangle {
-                        width: parent.width * 0.75
-                        height: 2
-                        radius: 1
-                        color: "#FFFFFF"
-                        antialiasing: true
-                        transformOrigin: Item.Left
-                        rotation: -50
-                        x: parent.width * 0.40
-                        y: parent.height * 0.82
-                    }
+                    source: "check-white.svg"
+                    sourceSize.width: width
+                    sourceSize.height: height
+                    fillMode: Image.PreserveAspectFit
+                    smooth: true
                 }
             }
         }
@@ -453,33 +436,16 @@ Kirigami.ScrollablePage {
                 color: autoLogin.checked ? positiveFieldColor : unfilledFieldColor
                 border.color: autoLogin.checked ? positiveFieldOutlineColor : unfilledFieldOutlineColor
 
-                Item {
-                    anchors.fill: parent
+                Image {
+                    anchors.centerIn: parent
+                    width: parent.width * 0.65
+                    height: parent.height * 0.65
                     visible: autoLogin.checked
-
-                    Rectangle {
-                        width: parent.width * 0.42
-                        height: 2
-                        radius: 1
-                        color: "#FFFFFF"
-                        antialiasing: true
-                        transformOrigin: Item.Left
-                        rotation: 45
-                        x: parent.width * 0.05
-                        y: parent.height * 0.50
-                    }
-
-                    Rectangle {
-                        width: parent.width * 0.75
-                        height: 2
-                        radius: 1
-                        color: "#FFFFFF"
-                        antialiasing: true
-                        transformOrigin: Item.Left
-                        rotation: -50
-                        x: parent.width * 0.40
-                        y: parent.height * 0.82
-                    }
+                    source: "check-white.svg"
+                    sourceSize.width: width
+                    sourceSize.height: height
+                    fillMode: Image.PreserveAspectFit
+                    smooth: true
                 }
             }
         }
@@ -502,33 +468,16 @@ Kirigami.ScrollablePage {
                 color: strongPasswords.checked ? positiveFieldColor : unfilledFieldColor
                 border.color: strongPasswords.checked ? positiveFieldOutlineColor : unfilledFieldOutlineColor
 
-                Item {
-                    anchors.fill: parent
+                Image {
+                    anchors.centerIn: parent
+                    width: parent.width * 0.65
+                    height: parent.height * 0.65
                     visible: strongPasswords.checked
-
-                    Rectangle {
-                        width: parent.width * 0.42
-                        height: 2
-                        radius: 1
-                        color: "#FFFFFF"
-                        antialiasing: true
-                        transformOrigin: Item.Left
-                        rotation: 45
-                        x: parent.width * 0.05
-                        y: parent.height * 0.50
-                    }
-
-                    Rectangle {
-                        width: parent.width * 0.75
-                        height: 2
-                        radius: 1
-                        color: "#FFFFFF"
-                        antialiasing: true
-                        transformOrigin: Item.Left
-                        rotation: -50
-                        x: parent.width * 0.40
-                        y: parent.height * 0.82
-                    }
+                    source: "check-white.svg"
+                    sourceSize.width: width
+                    sourceSize.height: height
+                    fillMode: Image.PreserveAspectFit
+                    smooth: true
                 }
             }
         }

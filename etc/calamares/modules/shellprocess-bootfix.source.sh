@@ -20,6 +20,16 @@
 #   command: "-echo <blob> | base64 -d | bash"
 
 {
+    # The live ISO forces volatile (RAM-only) journald storage so it never
+    # writes to the read-only squashfs. That drop-in gets carried onto the
+    # installed system too, which means any boot failure - like a GPU
+    # losing signal before a login is ever reached - leaves zero forensic
+    # trail. Remove it so the installed system logs persist across boots.
+    rm -f /etc/systemd/journald.conf.d/volatile-storage.conf
+    mkdir -p /var/log/journal
+    chgrp systemd-journal /var/log/journal 2>/dev/null
+    chmod 2755 /var/log/journal 2>/dev/null
+
     # mkinitcpio's autodetect/kms hooks can't see real GPU hardware while
     # running inside the install chroot, so nvidia's early-KMS modules
     # never make it into the initramfs and nouveau is free to race the
@@ -32,6 +42,20 @@
         fi
         if grep -q '^MODULES=(' /etc/mkinitcpio.conf 2>/dev/null && ! grep -q 'nvidia_drm' /etc/mkinitcpio.conf; then
             sed -i 's/^MODULES=(/MODULES=(nvidia nvidia_modeset nvidia_drm nvidia_uvm /' /etc/mkinitcpio.conf
+        fi
+
+        # Even with early KMS working, Xorg auto-probes every DRM device it
+        # can find and tries to configure each as its own screen with the
+        # generic "modesetting" driver - including the leftover simpledrm/
+        # EFI-framebuffer device the kernel always registers on UEFI systems.
+        # That second screen tries to grab DRM master on hardware nvidia
+        # already owns, fails with "Device or resource busy", and because
+        # Xorg treats any screen init failure as fatal, the whole server
+        # dies (total signal loss, well after plymouth's own KMS use already
+        # succeeded). This is the standard documented fix.
+        mkdir -p /etc/X11/xorg.conf.d
+        if [ ! -f /etc/X11/xorg.conf.d/99-nvidia-no-autoaddgpu.conf ]; then
+            printf 'Section "ServerFlags"\n    Option "AutoAddGPU" "false"\nEndSection\n' > /etc/X11/xorg.conf.d/99-nvidia-no-autoaddgpu.conf
         fi
     fi
 

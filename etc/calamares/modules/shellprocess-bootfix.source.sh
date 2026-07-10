@@ -45,17 +45,58 @@
         fi
 
         # Even with early KMS working, Xorg auto-probes every DRM device it
-        # can find and tries to configure each as its own screen with the
-        # generic "modesetting" driver - including the leftover simpledrm/
-        # EFI-framebuffer device the kernel always registers on UEFI systems.
-        # That second screen tries to grab DRM master on hardware nvidia
-        # already owns, fails with "Device or resource busy", and because
-        # Xorg treats any screen init failure as fatal, the whole server
-        # dies (total signal loss, well after plymouth's own KMS use already
-        # succeeded). This is the standard documented fix.
-        mkdir -p /etc/X11/xorg.conf.d
-        if [ ! -f /etc/X11/xorg.conf.d/99-nvidia-no-autoaddgpu.conf ]; then
-            printf 'Section "ServerFlags"\n    Option "AutoAddGPU" "false"\nEndSection\n' > /etc/X11/xorg.conf.d/99-nvidia-no-autoaddgpu.conf
+        # can find and tries to configure each as its own screen with a
+        # generic fallback driver (modesetting/nouveau/etc.) - including the
+        # leftover simpledrm/EFI-framebuffer device the kernel always
+        # registers on UEFI systems. That second screen tries to grab DRM
+        # master on hardware nvidia already owns, fails with "Device or
+        # resource busy", and because Xorg treats any screen init failure as
+        # fatal, the whole server dies (total signal loss, well after
+        # plymouth's own KMS use already succeeded).
+        #
+        # Option "AutoAddGPU" "false" does NOT stop this on this XLibre
+        # build - confirmed via Xorg.0.log, it's read correctly ("(**)
+        # Option AutoAddGPU false") but Xorg still enumerates and configures
+        # the second screen anyway. What actually works is bypassing
+        # autoconfig entirely with an explicit Device/Screen/ServerLayout
+        # pinned to the nvidia PCI device, detected here from sysfs rather
+        # than hardcoded, since the bus address varies per machine.
+        rm -f /etc/X11/xorg.conf.d/99-nvidia-no-autoaddgpu.conf
+        NVIDIA_BUSID=""
+        for dev in /sys/bus/pci/devices/*/; do
+            vendor=$(cat "${dev}vendor" 2>/dev/null)
+            class=$(cat "${dev}class" 2>/dev/null)
+            if [ "$vendor" = "0x10de" ] && { [ "${class:2:4}" = "0300" ] || [ "${class:2:4}" = "0302" ]; }; then
+                pciaddr=$(basename "$dev")
+                rest="${pciaddr#*:}"
+                bus_hex="${rest%%:*}"
+                rest2="${rest#*:}"
+                dev_hex="${rest2%%.*}"
+                func_hex="${rest2##*.}"
+                NVIDIA_BUSID="PCI:$((16#$bus_hex)):$((16#$dev_hex)):$((16#$func_hex))"
+                break
+            fi
+        done
+
+        if [ -n "$NVIDIA_BUSID" ]; then
+            mkdir -p /etc/X11/xorg.conf.d
+            {
+                echo 'Section "Device"'
+                echo '    Identifier "nvidia"'
+                echo '    Driver "nvidia"'
+                echo "    BusID \"${NVIDIA_BUSID}\""
+                echo 'EndSection'
+                echo ''
+                echo 'Section "Screen"'
+                echo '    Identifier "Screen0"'
+                echo '    Device "nvidia"'
+                echo 'EndSection'
+                echo ''
+                echo 'Section "ServerLayout"'
+                echo '    Identifier "layout"'
+                echo '    Screen 0 "Screen0"'
+                echo 'EndSection'
+            } > /etc/X11/xorg.conf.d/10-nvidia-pin.conf
         fi
     fi
 

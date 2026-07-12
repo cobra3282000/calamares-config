@@ -28,7 +28,7 @@
 - name: "Nvidia for latest Linux Kernel"
   description: "Installs nVidia Drivers for Linux"
   critical: false
-  hidden: false
+  hidden: true
   selected: false
   expanded: false
   packages:
@@ -39,7 +39,7 @@
 - name: "Nvidia-Lts for Linux-Lts Kernel"
   description: "Installs nvidia-LTS for Linux-Lts"
   critical: false
-  hidden: false
+  hidden: true
   selected: false
   expanded: false
   packages:
@@ -50,7 +50,7 @@
 - name: "Nvidia for Linux-Zen Kernel"
   description: "Installs nVidia for Linux-Zen"
   critical: false
-  hidden: false
+  hidden: true
   selected: false
   expanded: false
   packages:
@@ -61,7 +61,7 @@
 - name: "Nvidia-Lts for Linux-Zen lts Kernel"
   description: "Installs nVidia-Lts for Linux-Zen lts Kernel"
   critical: false
-  hidden: false
+  hidden: true
   selected: false
   expanded: false
   packages:
@@ -72,7 +72,7 @@
 - name: "Nvidia Support Applications"
   description: "Nvidia Support Applications"
   critical: false
-  hidden: false
+  hidden: true
   selected: false
   expanded: false
   packages:
@@ -82,7 +82,7 @@
 - name: "Intel Graphics Drivers"
   description: "Installs Intel Graphics drivers"
   critical: false
-  hidden: false
+  hidden: true
   selected: false
   expanded: false
   packages:
@@ -95,7 +95,7 @@
 - name: "AMD Graphics Drivers"
   description: "Installs AMD Graphics drivers"
   critical: false
-  hidden: false
+  hidden: true
   selected: false
   expanded: false
   packages:

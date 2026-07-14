@@ -3,7 +3,7 @@
   critical: false
   hidden: true
   selected: true
-  expanded: false
+  expanded: true
   packages:
     - ttf-anonymous-pro
     - ttf-caladea
@@ -73,7 +73,7 @@
   critical: false
   hidden: true
   selected: false
-  expanded: false
+  expanded: true
   packages:
     - virtualbox
     - virtualbox-host-dkms
@@ -83,9 +83,19 @@
   critical: false
   hidden: false
   selected: false
-  expanded: false
+  expanded: true
   packages:
     - lmstudio
+- name: "Video and Graphics Editors"
+  description: "Video and Graphics Editors"
+  critical: false
+  hidden: false
+  selected: false
+  expanded: true
+  packages:
+    - gimp
+    - kdenlive
+    - kdenlive-appimage
 - name: "Acreetoin Loaded Software"
   description: "Cinnamon Config files"
   critical: false

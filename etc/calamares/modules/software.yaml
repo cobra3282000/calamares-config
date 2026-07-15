@@ -137,8 +137,6 @@
     - mint-y-icons
     - gnome-screenshot
     - firefox
-    - pamac-all
-    - updater
     - xxglib2
     - downgrade-desktop
     - cinnamon-styles-fix

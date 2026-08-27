@@ -34,8 +34,6 @@ Presentation
         Image {
             id: background1
             source: "logo.png"
-            width: 900; height: 506
-            verticalAlignment: Image.AlignTop
             fillMode: Image.Stretch
             anchors.fill: parent
         }
